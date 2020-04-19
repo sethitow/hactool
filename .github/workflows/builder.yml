@@ -19,3 +19,7 @@ jobs:
       run: cp config.mk.template config.mk
     - name: make
       run: make
+    - uses: actions/upload-artifact@v1.0.0
+      with:
+        name: ${{ matrix.os }}
+        path: hactool
