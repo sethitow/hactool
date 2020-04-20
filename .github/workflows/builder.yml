@@ -20,6 +20,12 @@ jobs:
     - name: make
       run: make
     - uses: actions/upload-artifact@v1.0.0
+      if: matrix.os != 'windows-latest'
       with:
         name: ${{ matrix.os }}
-        path: hactool*
+        path: hactool
+    - uses: actions/upload-artifact@v1.0.0
+      if: matrix.os == 'windows-latest'
+      with:
+        name: ${{ matrix.os }}
+        path: hactool.exe
